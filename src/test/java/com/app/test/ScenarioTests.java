@@ -13,14 +13,14 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import com.app.scenarios.Scenario2;
-import com.app.scenarios.Scenario4;
+import com.app.scenarios.LoginPage;
+import com.app.scenarios.Cart;
 
 public class ScenarioTests {
 	
 	WebDriver driver;
-	Scenario2 sc2;
-	Scenario4 sc4;
+	LoginPage sc2;
+	Cart sc4;
 	Properties prop;
 
 	@BeforeMethod
@@ -29,8 +29,8 @@ public class ScenarioTests {
 		prop = new Properties();
 		prop.load(new FileInputStream(rootFolder + "//src//test//resources//data.properties"));
 		driver = new ChromeDriver();
-		sc2 = new Scenario2(driver, prop);
-		sc4 = new Scenario4(driver);
+		sc2 = new LoginPage(driver, prop);
+		sc4 = new Cart(driver);
 		driver.manage().window().maximize();
 	}
 	
