@@ -26,12 +26,5 @@ public class Scenario2 {
 		driver.findElement(By.xpath("//button[@class='btn primary  lg block submitButton']")).click();
 		Thread.sleep(3000);
 	}
-	
-	public void verifyLogin() {
-		String pageTitle = driver.getTitle();
-		String expectedTitle = "Online Shopping for Women, Men, Kids Fashion & Lifestyle - Myntra";
-		Assert.assertEquals(pageTitle, expectedTitle, "User not yet logged in");
-		Assert.assertTrue(driver.findElement(By.xpath("//span[@class='desktop-userTitle']")).isDisplayed());
-	}
 
 }

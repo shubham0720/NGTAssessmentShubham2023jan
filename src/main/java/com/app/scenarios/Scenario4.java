@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 
 public class Scenario4 {
 
@@ -32,7 +31,6 @@ public class Scenario4 {
 			Thread.sleep(3000);
 			driver.findElement(By.linkText("GO TO BAG")).click();
 			Thread.sleep(5000);
-			Assert.assertTrue(driver.findElement(By.xpath("//li[@class='step step3']")).isDisplayed());
 		}
 		else {
 			System.out.println("Not empty");

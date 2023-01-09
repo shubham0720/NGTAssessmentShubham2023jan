@@ -5,8 +5,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -36,13 +38,17 @@ public class ScenarioTests {
 	public void verifyScenario2() throws InterruptedException {
 		driver.get(prop.getProperty("url1"));
 		sc2.loginPage();
-		sc2.verifyLogin();
+		String pageTitle = driver.getTitle();
+		String expectedTitle = "Online Shopping for Women, Men, Kids Fashion & Lifestyle - Myntra";
+		Assert.assertEquals(pageTitle, expectedTitle, "User not yet logged in");
+		Assert.assertTrue(driver.findElement(By.xpath("//span[@class='desktop-userTitle']")).isDisplayed());
 	}
 	
 	@Test
 	public void verifyScenario4() throws InterruptedException {
 		driver.get(prop.getProperty("url2"));
 		sc4.checkBag();
+		Assert.assertTrue(driver.findElement(By.xpath("//li[@class='step step3']")).isDisplayed());
 	}
 	
 	@AfterMethod
